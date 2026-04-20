@@ -8,7 +8,7 @@ Given a call transcript (markdown) and — optionally — the presentation PDF y
 
 - **Decision and intent** — probability range with quoted reasons from the transcript.
 - **Objections and risks** — top blockers with evidence and concrete mitigations.
-- **Performance evaluation** — an honest read on how *you* handled the call.
+- **Performance evaluation** — an honest read on how _you_ handled the call.
 - **Thank-you email draft** — short, polite, ready to copy.
 - **Tips for the next call** — specific to this counterparty, not generic advice.
 
@@ -25,14 +25,14 @@ cp SKILL.md ~/.claude/skills/post-call-analysis/
 
 Claude Code will auto-trigger the skill on phrases like "review this meeting", "how did that call go?", or when you attach a transcript and deck together — you don't need to say "post-call" explicitly.
 
-### ChatGPT, Gemini, or other agents
+### Other agents
 
-Paste the body of `SKILL.md` (everything after the `---` frontmatter) into the agent as a system prompt, custom GPT instructions, Gemini Gem instructions, or a project-level instruction — whatever your tool of choice calls it. Then attach the transcript (and optionally the deck) and ask for the analysis.
+Either upload/save in the respective area for skills, or paste the body of `SKILL.md` (everything after the `---` frontmatter) into the agent as a system prompt or project-level instruction — whatever your tool of choice calls it. Then attach the transcript (and optionally the deck) and ask for the analysis.
 
 ## Usage
 
 Tell the agent who you are in the transcript, who the counterparty is, and where the files are:
 
-> Analyze my call with Jane Doe about pricing. Transcript: `call.md`, deck: `deck.pdf`. I'm "Andre" in the transcript.
+> Analyze my call with Jane Doe about pricing. Transcript: `call.md`, deck: `deck.pdf`. I'm "John Doe" in the transcript.
 
 The agent will confirm what it understood, read the inputs end-to-end, and produce the five sections above.
