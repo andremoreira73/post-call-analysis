@@ -1,8 +1,10 @@
 # post-call-analysis
 
-A Claude Code skill that runs a thorough wrap-up after a conference, sales, or discovery call so you can learn and improve for the next one.
+An agent skill that runs a thorough wrap-up after a conference, sales, or discovery call so you can learn and improve for the next one.
 
-Given a call transcript (markdown) and — optionally — the presentation PDF you walked through, it produces:
+Works with any capable AI agent — Claude, ChatGPT, Gemini, and others. `SKILL.md` is a structured playbook: Claude Code loads it automatically, and users of other agents can paste it in as a system prompt or project instructions.
+
+Given a call transcript (markdown) and — optionally — the presentation PDF you walked through, the agent produces:
 
 - **Decision and intent** — probability range with quoted reasons from the transcript.
 - **Objections and risks** — top blockers with evidence and concrete mitigations.
@@ -12,19 +14,25 @@ Given a call transcript (markdown) and — optionally — the presentation PDF y
 
 ## Install
 
-Copy the `SKILL.md` into your Claude Code skills directory:
+### Claude Code
+
+Copy `SKILL.md` into your Claude Code skills directory:
 
 ```bash
 mkdir -p ~/.claude/skills/post-call-analysis
 cp SKILL.md ~/.claude/skills/post-call-analysis/
 ```
 
-The skill triggers on phrases like "review this meeting", "how did that call go?", or when you attach a transcript and deck together — you don't need to say "post-call" explicitly.
+Claude Code will auto-trigger the skill on phrases like "review this meeting", "how did that call go?", or when you attach a transcript and deck together — you don't need to say "post-call" explicitly.
+
+### ChatGPT, Gemini, or other agents
+
+Paste the body of `SKILL.md` (everything after the `---` frontmatter) into the agent as a system prompt, custom GPT instructions, Gemini Gem instructions, or a project-level instruction — whatever your tool of choice calls it. Then attach the transcript (and optionally the deck) and ask for the analysis.
 
 ## Usage
 
-Point Claude at your transcript (and optionally your deck) and tell it who you are in the transcript:
+Tell the agent who you are in the transcript, who the counterparty is, and where the files are:
 
-> Analyze my call with Jane Doe about pricing at `/tmp/call.md`, deck at `/tmp/deck.pdf`. I'm "Andre" in the transcript.
+> Analyze my call with Jane Doe about pricing. Transcript: `call.md`, deck: `deck.pdf`. I'm "Andre" in the transcript.
 
-The skill will confirm what it understood, read the inputs end-to-end, and produce the five sections above.
+The agent will confirm what it understood, read the inputs end-to-end, and produce the five sections above.
